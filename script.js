@@ -23,4 +23,26 @@
       ex2_content.innerHTML = 'numer telefonu jest poprawny';
     }
   }
+
+  let dragged;
+  const source = document.getElementById("ex3_element");
+
+  source.addEventListener("dragstart", (event) => {
+    dragged = event.target;
+  });
+
+  source.addEventListener("dragend", (event) => {
+  });
+
+  const target = document.getElementById("ex3_two");
+  target.addEventListener("dragover", (event) => {
+    event.preventDefault();
+  });
+
+  target.addEventListener("dragenter", (event) => {
+    if (event.target.idList.contains("ex3_two")) {
+      event.target.classList.add("dragover");
+    }
+  });
+
 })();
